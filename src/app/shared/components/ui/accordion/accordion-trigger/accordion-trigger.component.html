@@ -1,0 +1,34 @@
+<button
+  type="button"
+  (click)="onToggle()"
+  [disabled]="disabled"
+  class="flex w-full items-center justify-between gap-2 py-3 text-left text-sm font-medium hover:underline disabled:opacity-50"
+>
+  <span><ng-content></ng-content></span>
+
+  <!-- Arrow icon -->
+  <!-- <svg
+    class="h-4 w-4 transition-transform duration-200"
+    [class.rotate-180]="item.open"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+  >
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+  </svg> -->
+
+  <svg
+    class="h-4 w-4 transition-transform duration-200"
+    [class.rotate-180]="item.open"
+    xmlns="http://www.w3.org/2000/svg"
+    width="1024"
+    height="1024"
+    viewBox="0 0 1024 1024"
+  >
+    <path
+      fill="currentColor"
+      d="M831.872 340.864L512 652.672L192.128 340.864a30.59 30.59 0 0 0-42.752 0a29.12 29.12 0 0 0 0 41.6L489.664 714.24a32 32 0 0 0 44.672 0l340.288-331.712a29.12 29.12 0 0 0 0-41.728a30.59 30.59 0 0 0-42.752 0z"
+    />
+  </svg>
+</button>
