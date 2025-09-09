@@ -12,6 +12,7 @@
     "lint": "ng lint",
     "lint:fix": "eslint . --ext .ts,.html --fix"
   },
+  "type": "module",
   "prettier": {
     "printWidth": 100,
     "singleQuote": true,
