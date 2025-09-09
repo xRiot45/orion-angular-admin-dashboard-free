@@ -1,0 +1,17 @@
+<div
+  role="alert"
+  [ngClass]="['w-full relative grid items-start rounded-lg border p-4 text-sm', variantClass]"
+>
+  <div class="flex gap-3">
+    <!-- Icon slot -->
+    <ng-content select="[alert-icon]"></ng-content>
+
+    <div class="flex flex-col gap-1 col-span-1">
+      <!-- Title -->
+      <ng-content select="[alert-title]"></ng-content>
+
+      <!-- Description -->
+      <ng-content select="[alert-description]"></ng-content>
+    </div>
+  </div>
+</div>
