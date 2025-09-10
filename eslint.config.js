@@ -32,7 +32,10 @@ export default tseslint.config(
       ],
 
       '@typescript-eslint/no-explicit-any': 'error',
-      '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
+      ],
     },
   },
   {
@@ -41,7 +44,7 @@ export default tseslint.config(
     rules: {},
   },
   {
-    files: ['src/app/shared/components/ui/**/*.ts'],
+    files: ['src/app/shared/**/*.ts'],
     rules: {
       '@typescript-eslint/no-explicit-any': 'off',
     },
