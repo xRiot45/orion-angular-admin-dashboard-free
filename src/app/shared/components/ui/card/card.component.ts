@@ -6,7 +6,7 @@ import {
   TemplateRef,
   ViewEncapsulation,
 } from '@angular/core';
-import { ZardStringTemplateOutletDirective } from '@shared/directives/string-template-outlet/string-template-outlet.directive';
+import { ZardStringTemplateOutletDirective } from '@shared/directives/string-template-outlet.directive';
 import { mergeClasses } from '@shared/utils/merge-classes';
 import { ClassValue } from 'clsx';
 import { cardBodyVariants, cardHeaderVariants, cardVariants } from './card.variants';
