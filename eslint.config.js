@@ -30,11 +30,19 @@ export default tseslint.config(
           style: 'kebab-case',
         },
       ],
+
+      '@typescript-eslint/no-explicit-any': 'error',
     },
   },
   {
     files: ['**/*.html'],
     extends: [...angular.configs.templateRecommended, ...angular.configs.templateAccessibility],
     rules: {},
+  },
+  {
+    files: ['src/app/shared/components/ui/**/*.ts'],
+    rules: {
+      '@typescript-eslint/no-explicit-any': 'off',
+    },
   },
 );
