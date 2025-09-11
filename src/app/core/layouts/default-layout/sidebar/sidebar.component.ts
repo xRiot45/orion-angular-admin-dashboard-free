@@ -1,11 +1,21 @@
 import { CommonModule } from '@angular/common';
 import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { ZardDividerComponent } from '@shared/components/ui/divider/divider.component';
-import { ZardDropdownModule } from '@shared/components/ui/dropdown/dropdown.module';
+import { SidebarBrandComponent } from './sidebar-brand/sidebar-brand.component';
+import { SidebarFooterComponent } from './sidebar-footer/sidebar-footer.component';
+import { SidebarHeaderComponent } from './sidebar-header/sidebar-header.component';
+import { SidebarMenuComponent } from './sidebar-menu/sidebar-menu.component';
+import { SidebarSearchComponent } from './sidebar-search/sidebar-search.component';
 
 @Component({
   selector: 'app-sidebar',
-  imports: [CommonModule, ZardDropdownModule, ZardDividerComponent],
+  imports: [
+    CommonModule,
+    SidebarHeaderComponent,
+    SidebarBrandComponent,
+    SidebarSearchComponent,
+    SidebarMenuComponent,
+    SidebarFooterComponent,
+  ],
   templateUrl: './sidebar.component.html',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

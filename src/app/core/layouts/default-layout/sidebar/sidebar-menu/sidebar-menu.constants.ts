@@ -42,14 +42,4 @@ export const NAV_ITEMS: NavGroup[] = [
       { title: 'Charts', icon: 'mdi:chart-bar' },
     ],
   },
-  {
-    groupTitle: 'BRANDING',
-    items: [
-      {
-        title: 'Upgrade to Premium',
-        icon: 'mdi:rocket-launch-outline',
-        badge: '🔥 Get access to 20+ extra pages & advanced features with Orion Premium!',
-      },
-    ],
-  },
 ];
