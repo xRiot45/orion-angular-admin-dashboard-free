@@ -9,7 +9,7 @@
       [zImage]="profilePicture"
       size="md"
       zShape="circle"
-      class="transition group-hover:ring-2 w-8 h-8 group-hover:ring-indigo-400"
+      class="transition group-hover:ring-2 w-8 h-8 group-hover:ring-red-500"
     ></z-avatar>
 
     @if (!isCollapsed) {
@@ -60,18 +60,33 @@
     <!-- Quick Actions -->
     <div class="flex flex-col px-2 py-1 space-y-2">
       <z-dropdown-menu-item class="hover:bg-zinc-100 rounded-lg p-3">
-        <iconify-icon icon="mdi:pencil-outline" class="mr-2 text-indigo-500"></iconify-icon>
+        <iconify-icon
+          icon="mdi:pencil-outline"
+          width="16"
+          height="16"
+          class="mr-2 text-blue-500"
+        ></iconify-icon>
         Edit Profile
       </z-dropdown-menu-item>
 
       <z-dropdown-menu-item class="hover:bg-zinc-100 rounded-lg p-3">
-        <iconify-icon icon="mdi:bell-outline" class="mr-2 text-indigo-500"></iconify-icon>
+        <iconify-icon
+          icon="mdi:bell-outline"
+          width="16"
+          height="16"
+          class="mr-2 text-blue-500"
+        ></iconify-icon>
         Notifications
         <span class="ml-auto text-xs px-2 py-0.5 rounded-full bg-red-100 text-red-600">3</span>
       </z-dropdown-menu-item>
 
       <z-dropdown-menu-item class="hover:bg-zinc-100 rounded-lg p-3">
-        <iconify-icon icon="mdi:folder-outline" class="mr-2 text-indigo-500"></iconify-icon>
+        <iconify-icon
+          icon="mdi:folder-outline"
+          width="16"
+          height="16"
+          class="mr-2 text-blue-500"
+        ></iconify-icon>
         My Projects
       </z-dropdown-menu-item>
     </div>
