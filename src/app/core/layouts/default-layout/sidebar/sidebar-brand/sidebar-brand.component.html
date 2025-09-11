@@ -1,0 +1,39 @@
+<div
+  class="flex items-center justify-between px-4 py-3 border-b border-zinc-800"
+  [class.justify-center]="isCollapsed"
+>
+  <a href="#" class="flex items-center gap-2">
+    <div class="bg-white/10 p-2 rounded-xl flex items-center justify-center shadow-md">
+      <iconify-icon
+        icon="devicon:angular"
+        width="28"
+        height="28"
+        class="text-red-500"
+      ></iconify-icon>
+    </div>
+    @if (!isCollapsed) {
+      <span class="text-xl font-bold tracking-wide text-white flex items-center gap-2">
+        Orion
+        <span class="text-xs font-semibold text-green-400 bg-green-900/30 px-2 py-0.5 rounded">
+          Free
+        </span>
+      </span>
+    }
+  </a>
+
+  <!-- Collapse Button -->
+  @if (!isCollapsed) {
+    <button
+      class="mt-2 w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition"
+      title="Collapsible Sidebar"
+      (click)="toggleSidebar.emit()"
+    >
+      <iconify-icon
+        [icon]="isCollapsed ? 'mingcute:right-fill' : 'mingcute:left-fill'"
+        width="20"
+        height="20"
+        class="text-gray-500"
+      ></iconify-icon>
+    </button>
+  }
+</div>

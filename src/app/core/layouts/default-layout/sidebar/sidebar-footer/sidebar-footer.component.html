@@ -1,0 +1,53 @@
+<div class="px-4 py-3 border-t border-zinc-800 text-xs text-zinc-500 items-center">
+  @if (!isCollapsed) {
+    <div class="flex flex-col gap-2">
+      <div class="flex items-center justify-between">
+        <span>Orion Free v1.0.0</span>
+        <div class="flex items-center gap-3">
+          <a href="#" class="hover:text-white">
+            <iconify-icon icon="mdi:github" width="16" height="16"></iconify-icon>
+          </a>
+          <a href="#" class="hover:text-white">
+            <iconify-icon icon="mdi:discord" width="16" height="16"></iconify-icon>
+          </a>
+          <a href="#" class="hover:text-white">
+            <iconify-icon icon="mdi:web" width="16" height="16"></iconify-icon>
+          </a>
+        </div>
+      </div>
+      <span class="text-[11px] text-zinc-600">Limited features · Upgrade anytime</span>
+    </div>
+  } @else {
+    <div class="flex flex-col items-center gap-2">
+      <a href="#" class="hover:text-white"
+        ><iconify-icon icon="mdi:github" width="16" height="16"></iconify-icon
+      ></a>
+      <a href="#" class="hover:text-white"
+        ><iconify-icon icon="mdi:discord" width="16" height="16"></iconify-icon
+      ></a>
+      <a href="#" class="hover:text-white"
+        ><iconify-icon icon="mdi:web" width="16" height="16"></iconify-icon
+      ></a>
+    </div>
+  }
+
+  <!-- Tombol Collapsible tambahan di Footer -->
+  @if (isCollapsed) {
+    <button
+      class="mt-2 w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition"
+      title="Expand Sidebar"
+      (click)="toggleSidebar.emit()"
+    >
+      <iconify-icon
+        icon="mingcute:right-fill"
+        width="20"
+        height="20"
+        class="text-gray-500"
+      ></iconify-icon>
+    </button>
+  }
+
+  @if (!isCollapsed) {
+    <span class="mt-2 text-zinc-600">Made with ❤️ by RumahKodingku</span>
+  }
+</div>
