@@ -5,15 +5,16 @@
     [zDropdownMenu]="userMenu"
     [class.justify-center]="isCollapsed"
   >
-    <img
-      src="https://i.pravatar.cc/40?img=8"
-      alt="User Avatar"
-      class="w-10 rounded-full border-zinc-300 shadow-sm transition group-hover:ring-2 group-hover:ring-indigo-400"
-    />
+    <z-avatar
+      [zImage]="profilePicture"
+      size="md"
+      zShape="circle"
+      class="transition group-hover:ring-2 w-8 h-8 group-hover:ring-indigo-400"
+    ></z-avatar>
 
     @if (!isCollapsed) {
       <div class="flex flex-col">
-        <span class="text-sm font-semibold text-zinc-200">Thomas Alberto</span>
+        <span class="text-sm font-semibold text-zinc-200">John Doe</span>
         <span class="text-xs text-zinc-500">UI/UX Designer</span>
       </div>
     }
@@ -22,7 +23,7 @@
   <!-- Dropdown Menu -->
   <z-dropdown-menu-content
     #userMenu="zDropdownMenuContent"
-    class="w-72 rounded-xl shadow-lg bg-white scrollbar-none"
+    class="w-72 rounded-xl shadow-lg bg-white scrollbar-none h-screen max-h-[480px] overflow-y-auto"
   >
     <!-- User Card -->
     <div class="flex flex-col items-center text-center p-5">
@@ -31,8 +32,8 @@
         class="w-16 h-16 rounded-full border border-zinc-300 shadow-sm mb-3"
         alt="User"
       />
-      <span class="text-base font-semibold text-zinc-800">Thomas Alberto</span>
-      <span class="text-xs text-zinc-500 mb-2">UI/UX Designer · Jakarta</span>
+      <span class="text-base font-semibold text-zinc-800">John Doe</span>
+      <span class="text-xs text-zinc-500 mb-2">UI/UX Designer · Australia</span>
       <span class="text-[11px] px-3 py-1 rounded-full bg-indigo-50 text-gray-600 font-medium">
         Free Member
       </span>
@@ -57,19 +58,19 @@
     <z-divider zSpacing="sm" class="-mx-2"></z-divider>
 
     <!-- Quick Actions -->
-    <div class="flex flex-col px-2 py-1">
-      <z-dropdown-menu-item class="hover:bg-zinc-100 rounded-lg px-3 py-2">
+    <div class="flex flex-col px-2 py-1 space-y-2">
+      <z-dropdown-menu-item class="hover:bg-zinc-100 rounded-lg p-3">
         <iconify-icon icon="mdi:pencil-outline" class="mr-2 text-indigo-500"></iconify-icon>
         Edit Profile
       </z-dropdown-menu-item>
 
-      <z-dropdown-menu-item class="hover:bg-zinc-100 rounded-lg px-3 py-2">
+      <z-dropdown-menu-item class="hover:bg-zinc-100 rounded-lg p-3">
         <iconify-icon icon="mdi:bell-outline" class="mr-2 text-indigo-500"></iconify-icon>
         Notifications
         <span class="ml-auto text-xs px-2 py-0.5 rounded-full bg-red-100 text-red-600">3</span>
       </z-dropdown-menu-item>
 
-      <z-dropdown-menu-item class="hover:bg-zinc-100 rounded-lg px-3 py-2">
+      <z-dropdown-menu-item class="hover:bg-zinc-100 rounded-lg p-3">
         <iconify-icon icon="mdi:folder-outline" class="mr-2 text-indigo-500"></iconify-icon>
         My Projects
       </z-dropdown-menu-item>
@@ -79,10 +80,11 @@
 
     <!-- Logout -->
     <z-dropdown-menu-item
-      class="justify-center text-red-600 font-medium hover:bg-red-50 rounded-lg transition py-2"
+      class="justify-center text-white bg-red-600 font-medium hover:bg-red-700 rounded-md transition py-3 mt-2"
       (zDropdownMenuItemSelect)="onLogout()"
     >
       Logout
+      <iconify-icon icon="mdi:logout"></iconify-icon>
     </z-dropdown-menu-item>
   </z-dropdown-menu-content>
 </div>
