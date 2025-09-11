@@ -6,7 +6,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <header class="header">
+    <header class="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between">
       <div class="flex items-center">
         <!-- Mobile Menu Button -->
         <button
@@ -47,7 +47,9 @@ import { Component, EventEmitter, Output } from '@angular/core';
 
       <!-- Header Actions -->
       <div class="flex items-center space-x-4">
-        <button class="header-btn">
+        <button
+          class="flex items-center px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+        >
           <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
               stroke-linecap="round"
@@ -63,17 +65,6 @@ import { Component, EventEmitter, Output } from '@angular/core';
       </div>
     </header>
   `,
-  styles: [
-    `
-      .header {
-        @apply bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between;
-      }
-
-      .header-btn {
-        @apply flex items-center px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500;
-      }
-    `,
-  ],
 })
 export class HeaderComponent {
   @Output() menuToggle = new EventEmitter<void>();
