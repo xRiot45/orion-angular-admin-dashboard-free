@@ -19,7 +19,6 @@ export class SidebarComponent {
 
   toggleSidebar() {
     this.isCollapsed = !this.isCollapsed;
-    // kalau sidebar ditutup, otomatis tutup semua submenu
     if (this.isCollapsed) {
       this.openMenu = null;
     }
