@@ -18,7 +18,10 @@
 
   <!-- Grid Buttons -->
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 gap-4">
-    <div *ngFor="let btn of buttons" class="relative p-6 rounded-2xl border">
+    <div
+      *ngFor="let btn of buttons"
+      class="relative p-6 rounded-2xl border border-[var(--color-border)]"
+    >
       <!-- Header Card -->
       <div class="flex items-center justify-between mb-4">
         <div class="block">
