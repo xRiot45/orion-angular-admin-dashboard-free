@@ -5,7 +5,7 @@ import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
 @Component({
-  selector: 'app-default-layout',
+  selector: 'default-layout',
   standalone: true,
   imports: [SidebarComponent, HeaderComponent, FooterComponent, RouterOutlet],
   template: `

@@ -1,8 +1,9 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA, EventEmitter, Input, Output } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-sidebar-brand',
-  imports: [],
+  selector: 'sidebar-brand',
+  imports: [RouterLink],
   templateUrl: './sidebar-brand.component.html',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

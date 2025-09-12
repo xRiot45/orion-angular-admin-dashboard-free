@@ -1,10 +1,13 @@
+<!-- User Profile Section -->
 <div class="px-4 py-3 border-b border-zinc-800">
+  <!-- Avatar & User Info Trigger (opens dropdown on click) -->
   <div
     class="flex items-center gap-3 cursor-pointer group"
     z-dropdown
     [zDropdownMenu]="userMenu"
     [class.justify-center]="isCollapsed"
   >
+    <!-- User Avatar -->
     <z-avatar
       [zImage]="profilePicture"
       size="md"
@@ -12,6 +15,7 @@
       class="transition group-hover:ring-2 w-8 h-8 group-hover:ring-red-500"
     ></z-avatar>
 
+    <!-- User Name & Role (only visible when expanded) -->
     @if (!isCollapsed) {
       <div class="flex flex-col">
         <span class="text-sm font-semibold text-zinc-200">John Doe</span>
@@ -20,86 +24,94 @@
     }
   </div>
 
-  <!-- Dropdown Menu -->
+  <!-- Dropdown Menu Content -->
   <z-dropdown-menu-content
     #userMenu="zDropdownMenuContent"
-    class="w-72 rounded-xl shadow-lg bg-white scrollbar-none h-screen max-h-[480px] overflow-y-auto"
+    class="w-72 rounded-md shadow-none bg-white scrollbar-none h-screen max-h-[480px] overflow-y-auto"
   >
-    <!-- User Card -->
-    <div class="flex flex-col items-center text-center p-5">
-      <img
-        src="https://i.pravatar.cc/80?img=8"
-        class="w-16 h-16 rounded-full border border-zinc-300 shadow-sm mb-3"
-        alt="User"
-      />
-      <span class="text-base font-semibold text-zinc-800">John Doe</span>
-      <span class="text-xs text-zinc-500 mb-2">UI/UX Designer · Australia</span>
-      <span class="text-[11px] px-3 py-1 rounded-full bg-indigo-50 text-gray-600 font-medium">
-        Free Member
-      </span>
-    </div>
-
-    <!-- Stats Row -->
-    <div class="grid grid-cols-3 gap-3 px-4 pb-4">
-      <div class="flex flex-col items-center">
-        <span class="text-sm font-semibold text-zinc-800">12</span>
-        <span class="text-[11px] text-zinc-500">Projects</span>
+    <div class="px-2">
+      <!-- User Info Card -->
+      <div class="flex flex-col items-center text-center p-5">
+        <img
+          src="https://i.pravatar.cc/80?img=8"
+          class="w-16 h-16 rounded-full border border-zinc-300 shadow-sm mb-3"
+          alt="User"
+        />
+        <span class="text-base font-semibold text-zinc-800">John Doe</span>
+        <span class="text-xs text-zinc-500 mb-2">UI/UX Designer · Australia</span>
+        <span class="text-[11px] px-3 py-1 rounded-full bg-indigo-50 text-gray-600 font-medium">
+          Free Member
+        </span>
       </div>
-      <div class="flex flex-col items-center">
-        <span class="text-sm font-semibold text-zinc-800">7</span>
-        <span class="text-[11px] text-zinc-500">Teams</span>
+
+      <!-- User Stats (Projects, Teams, Alerts) -->
+      <div class="grid grid-cols-3 gap-3 px-4 pb-4">
+        <div class="flex flex-col items-center">
+          <span class="text-sm font-semibold text-zinc-800">12</span>
+          <span class="text-[11px] text-zinc-500">Projects</span>
+        </div>
+        <div class="flex flex-col items-center">
+          <span class="text-sm font-semibold text-zinc-800">7</span>
+          <span class="text-[11px] text-zinc-500">Teams</span>
+        </div>
+        <div class="flex flex-col items-center">
+          <span class="text-sm font-semibold text-zinc-800">3</span>
+          <span class="text-[11px] text-zinc-500">Alerts</span>
+        </div>
       </div>
-      <div class="flex flex-col items-center">
-        <span class="text-sm font-semibold text-zinc-800">3</span>
-        <span class="text-[11px] text-zinc-500">Alerts</span>
+
+      <!-- Divider -->
+      <z-divider zSpacing="sm" class="-mx-2"></z-divider>
+
+      <!-- Quick Actions List -->
+      <div class="flex flex-col px-2 py-1 space-y-2">
+        <!-- Edit Profile -->
+        <z-dropdown-menu-item class="hover:bg-zinc-100 rounded-lg p-3">
+          <iconify-icon
+            icon="mdi:pencil-outline"
+            width="16"
+            height="16"
+            class="mr-2 text-blue-500"
+          ></iconify-icon>
+          Edit Profile
+        </z-dropdown-menu-item>
+
+        <!-- Notifications -->
+        <z-dropdown-menu-item class="hover:bg-zinc-100 rounded-lg p-3">
+          <iconify-icon
+            icon="mdi:bell-outline"
+            width="16"
+            height="16"
+            class="mr-2 text-blue-500"
+          ></iconify-icon>
+          Notifications
+          <!-- Badge showing number of notifications -->
+          <span class="ml-auto text-xs px-2 py-0.5 rounded-full bg-red-100 text-red-600">3</span>
+        </z-dropdown-menu-item>
+
+        <!-- My Projects -->
+        <z-dropdown-menu-item class="hover:bg-zinc-100 rounded-lg p-3">
+          <iconify-icon
+            icon="mdi:folder-outline"
+            width="16"
+            height="16"
+            class="mr-2 text-blue-500"
+          ></iconify-icon>
+          My Projects
+        </z-dropdown-menu-item>
       </div>
-    </div>
 
-    <z-divider zSpacing="sm" class="-mx-2"></z-divider>
+      <!-- Divider -->
+      <z-divider zSpacing="sm" class="-mx-2"></z-divider>
 
-    <!-- Quick Actions -->
-    <div class="flex flex-col px-2 py-1 space-y-2">
-      <z-dropdown-menu-item class="hover:bg-zinc-100 rounded-lg p-3">
-        <iconify-icon
-          icon="mdi:pencil-outline"
-          width="16"
-          height="16"
-          class="mr-2 text-blue-500"
-        ></iconify-icon>
-        Edit Profile
-      </z-dropdown-menu-item>
-
-      <z-dropdown-menu-item class="hover:bg-zinc-100 rounded-lg p-3">
-        <iconify-icon
-          icon="mdi:bell-outline"
-          width="16"
-          height="16"
-          class="mr-2 text-blue-500"
-        ></iconify-icon>
-        Notifications
-        <span class="ml-auto text-xs px-2 py-0.5 rounded-full bg-red-100 text-red-600">3</span>
-      </z-dropdown-menu-item>
-
-      <z-dropdown-menu-item class="hover:bg-zinc-100 rounded-lg p-3">
-        <iconify-icon
-          icon="mdi:folder-outline"
-          width="16"
-          height="16"
-          class="mr-2 text-blue-500"
-        ></iconify-icon>
-        My Projects
+      <!-- Logout Button -->
+      <z-dropdown-menu-item
+        class="justify-center text-white bg-red-600 font-medium hover:bg-red-700 rounded-md transition p-3 mt-2"
+        (zDropdownMenuItemSelect)="onLogout()"
+      >
+        Logout
+        <iconify-icon icon="mdi:logout"></iconify-icon>
       </z-dropdown-menu-item>
     </div>
-
-    <z-divider zSpacing="sm" class="-mx-2"></z-divider>
-
-    <!-- Logout -->
-    <z-dropdown-menu-item
-      class="justify-center text-white bg-red-600 font-medium hover:bg-red-700 rounded-md transition py-3 mt-2"
-      (zDropdownMenuItemSelect)="onLogout()"
-    >
-      Logout
-      <iconify-icon icon="mdi:logout"></iconify-icon>
-    </z-dropdown-menu-item>
   </z-dropdown-menu-content>
 </div>

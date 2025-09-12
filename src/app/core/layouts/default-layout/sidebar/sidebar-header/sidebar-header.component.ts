@@ -5,7 +5,7 @@ import { ZardDividerComponent } from '@shared/components/ui/divider/divider.comp
 import { ZardDropdownModule } from '@shared/components/ui/dropdown/dropdown.module';
 
 @Component({
-  selector: 'app-sidebar-header',
+  selector: 'sidebar-header',
   imports: [CommonModule, ZardDropdownModule, ZardDividerComponent, ZardAvatarComponent],
   templateUrl: './sidebar-header.component.html',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

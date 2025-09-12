@@ -21,31 +21,25 @@
   [class.translate-x-0]="isMobileOrTablet && isMobileOpen"
 >
   <!-- Brand -->
-  <app-sidebar-brand
-    [isCollapsed]="isCollapsed"
-    (toggleSidebar)="toggleSidebar()"
-  ></app-sidebar-brand>
+  <sidebar-brand [isCollapsed]="isCollapsed" (toggleSidebar)="toggleSidebar()"></sidebar-brand>
 
   <!-- Header Sidebar -->
-  <app-sidebar-header [isCollapsed]="isCollapsed" (onLogout)="onLogout()"></app-sidebar-header>
+  <sidebar-header [isCollapsed]="isCollapsed" (onLogout)="onLogout()"></sidebar-header>
 
   <!-- Search -->
   @if (!isCollapsed && !isMobileOrTablet) {
-    <app-sidebar-search></app-sidebar-search>
+    <sidebar-search></sidebar-search>
   }
 
   <!-- Menu -->
   <div class="flex-1 flex flex-col overflow-y-auto scrollbar-none">
-    <app-sidebar-menu
+    <sidebar-menu
       [isCollapsed]="isCollapsed"
       [openMenu]="openMenu"
       [toggle]="toggle.bind(this)"
-    ></app-sidebar-menu>
+    ></sidebar-menu>
   </div>
 
   <!-- Footer -->
-  <app-sidebar-footer
-    [isCollapsed]="isCollapsed"
-    (toggleSidebar)="toggleSidebar()"
-  ></app-sidebar-footer>
+  <sidebar-footer [isCollapsed]="isCollapsed" (toggleSidebar)="toggleSidebar()"></sidebar-footer>
 </aside>

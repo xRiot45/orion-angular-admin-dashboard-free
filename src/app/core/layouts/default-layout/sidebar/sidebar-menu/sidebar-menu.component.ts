@@ -4,7 +4,7 @@ import { NavGroup } from '@shared/types/nav.types';
 import { NAV_ITEMS } from './sidebar-menu.constants';
 
 @Component({
-  selector: 'app-sidebar-menu',
+  selector: 'sidebar-menu',
   imports: [CommonModule],
   templateUrl: './sidebar-menu.component.html',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
