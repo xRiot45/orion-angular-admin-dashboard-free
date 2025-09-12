@@ -1,5 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { Component, CUSTOM_ELEMENTS_SCHEMA, OnDestroy, OnInit } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  CUSTOM_ELEMENTS_SCHEMA,
+  inject,
+  NgZone,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { SidebarBrandComponent } from './sidebar-brand/sidebar-brand.component';
 import { SidebarFooterComponent } from './sidebar-footer/sidebar-footer.component';
 import { SidebarHeaderComponent } from './sidebar-header/sidebar-header.component';
@@ -26,19 +34,39 @@ export class SidebarComponent implements OnInit, OnDestroy {
   isMobileOrTablet = false;
   isMobileOpen = false;
 
+  private resizeHandler!: () => void;
+  private ngZone = inject(NgZone);
+  private cdr = inject(ChangeDetectorRef);
+
   ngOnInit() {
     this.checkScreenSize();
-    window.addEventListener('resize', this.checkScreenSize.bind(this));
+
+    this.resizeHandler = () => {
+      this.ngZone.run(() => this.checkScreenSize());
+    };
+
+    window.addEventListener('resize', this.resizeHandler);
   }
 
   ngOnDestroy() {
-    window.removeEventListener('resize', this.checkScreenSize.bind(this));
+    window.removeEventListener('resize', this.resizeHandler);
   }
 
   checkScreenSize() {
-    this.isMobileOrTablet = window.innerWidth < 1024;
-    if (this.isMobileOrTablet) {
-      this.isCollapsed = false;
+    const mobile = window.innerWidth < 1024;
+
+    if (mobile !== this.isMobileOrTablet) {
+      this.isMobileOrTablet = mobile;
+
+      if (this.isMobileOrTablet) {
+        this.isCollapsed = false;
+        this.isMobileOpen = false;
+      } else {
+        this.isCollapsed = false;
+        this.isMobileOpen = true;
+      }
+
+      setTimeout(() => this.cdr.detectChanges(), 0);
     }
   }
 
