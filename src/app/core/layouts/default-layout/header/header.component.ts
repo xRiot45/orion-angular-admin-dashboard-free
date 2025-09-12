@@ -1,9 +1,11 @@
 import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   CUSTOM_ELEMENTS_SCHEMA,
   EventEmitter,
+  inject,
   OnDestroy,
   OnInit,
   Output,
@@ -22,15 +24,29 @@ export class HeaderComponent implements OnInit, OnDestroy {
   isMobileOrTablet = false;
   currentTime = '';
 
+  private resizeListener!: () => void;
+  private intervalId!: number;
+  private cdr = inject(ChangeDetectorRef);
+
   ngOnInit() {
     this.updateTime();
     this.checkScreenSize();
-    window.addEventListener('resize', this.checkScreenSize.bind(this));
-    setInterval(() => this.updateTime(), 1000);
+
+    this.resizeListener = () => {
+      this.checkScreenSize();
+      this.cdr.markForCheck();
+    };
+    window.addEventListener('resize', this.resizeListener);
+
+    this.intervalId = window.setInterval(() => {
+      this.updateTime();
+      this.cdr.markForCheck();
+    }, 1000);
   }
 
   ngOnDestroy() {
-    window.removeEventListener('resize', this.checkScreenSize.bind(this));
+    window.removeEventListener('resize', this.resizeListener);
+    clearInterval(this.intervalId);
   }
 
   checkScreenSize() {
