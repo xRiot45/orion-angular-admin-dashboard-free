@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, OnDestroy, OnInit } from '@angular/core';
 import { SidebarBrandComponent } from './sidebar-brand/sidebar-brand.component';
 import { SidebarFooterComponent } from './sidebar-footer/sidebar-footer.component';
 import { SidebarHeaderComponent } from './sidebar-header/sidebar-header.component';
@@ -8,6 +8,7 @@ import { SidebarSearchComponent } from './sidebar-search/sidebar-search.componen
 
 @Component({
   selector: 'app-sidebar',
+  standalone: true,
   imports: [
     CommonModule,
     SidebarHeaderComponent,
@@ -19,27 +20,47 @@ import { SidebarSearchComponent } from './sidebar-search/sidebar-search.componen
   templateUrl: './sidebar.component.html',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class SidebarComponent {
+export class SidebarComponent implements OnInit, OnDestroy {
   openMenu: string | null = null;
   isCollapsed = false;
+  isMobileOrTablet = false;
+  isMobileOpen = false;
+
+  ngOnInit() {
+    this.checkScreenSize();
+    window.addEventListener('resize', this.checkScreenSize.bind(this));
+  }
+
+  ngOnDestroy() {
+    window.removeEventListener('resize', this.checkScreenSize.bind(this));
+  }
+
+  checkScreenSize() {
+    this.isMobileOrTablet = window.innerWidth < 1024;
+    if (this.isMobileOrTablet) {
+      this.isCollapsed = false;
+    }
+  }
 
   toggle(menu: string) {
     this.openMenu = this.openMenu === menu ? null : menu;
   }
 
-  toggleSidebar() {
-    this.isCollapsed = !this.isCollapsed;
-    if (this.isCollapsed) {
-      this.openMenu = null;
+  toggleSidebar(force?: boolean) {
+    if (this.isMobileOrTablet) {
+      this.isMobileOpen = force !== undefined ? force : !this.isMobileOpen;
+    } else {
+      this.isCollapsed = !this.isCollapsed;
+      if (this.isCollapsed) {
+        this.openMenu = null;
+      }
     }
   }
 
-  onProfile() {
-    console.log('Profile clicked');
-  }
-
-  onSettings() {
-    console.log('Settings clicked');
+  onOverlayKeydown(event: KeyboardEvent): void {
+    if (event.key === 'Escape') {
+      this.toggleSidebar(false);
+    }
   }
 
   onLogout() {

@@ -1,9 +1,9 @@
 import { Component, signal } from '@angular/core';
-import { SidebarComponent } from './core/layouts/default-layout/sidebar/sidebar.component';
+import { DefaultLayoutComponent } from './core/layouts/default-layout/default-layout.component';
 
 @Component({
   selector: 'app-root',
-  imports: [SidebarComponent],
+  imports: [DefaultLayoutComponent],
   templateUrl: './app.html',
 })
 export class App {
