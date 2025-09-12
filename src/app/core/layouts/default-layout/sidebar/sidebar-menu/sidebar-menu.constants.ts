@@ -7,7 +7,7 @@ export const NAV_ITEMS: NavGroup[] = [
       {
         title: 'Dashboard',
         icon: 'material-symbols:dashboard-outline-rounded',
-        route: '/dashboard',
+        route: '/',
       },
       {
         title: 'Authentication',
@@ -43,7 +43,7 @@ export const NAV_ITEMS: NavGroup[] = [
       {
         title: 'UI Elements',
         icon: 'mdi:palette',
-        route: '/ui-elements',
+        route: '#',
         children: [
           // A
           { title: 'Accordion', route: '/ui-elements/accordion' },
