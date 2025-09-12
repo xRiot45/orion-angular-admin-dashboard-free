@@ -10,11 +10,13 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
+import { ZardButtonComponent } from '@shared/components/ui/button/button.component';
+import { ZardInputDirective } from '@shared/components/ui/input/input.directive';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ZardButtonComponent, ZardInputDirective],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './header.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
