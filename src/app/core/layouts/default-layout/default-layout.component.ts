@@ -9,7 +9,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
   standalone: true,
   imports: [SidebarComponent, HeaderComponent, FooterComponent, RouterOutlet],
   template: `
-    <div class="flex h-screen w-screen">
+    <main class="flex h-screen w-screen">
       <!-- Sidebar -->
       <app-sidebar #sidebar></app-sidebar>
 
@@ -27,7 +27,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
         <!-- Footer -->
         <app-footer></app-footer>
       </div>
-    </div>
+    </main>
   `,
 })
 export class DefaultLayoutComponent {

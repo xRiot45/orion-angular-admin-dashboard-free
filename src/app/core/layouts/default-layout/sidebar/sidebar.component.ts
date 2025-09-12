@@ -9,7 +9,6 @@ import {
   OnInit,
 } from '@angular/core';
 import { SidebarBrandComponent } from './sidebar-brand/sidebar-brand.component';
-import { SidebarFooterComponent } from './sidebar-footer/sidebar-footer.component';
 import { SidebarHeaderComponent } from './sidebar-header/sidebar-header.component';
 import { SidebarMenuComponent } from './sidebar-menu/sidebar-menu.component';
 import { SidebarSearchComponent } from './sidebar-search/sidebar-search.component';
@@ -23,7 +22,6 @@ import { SidebarSearchComponent } from './sidebar-search/sidebar-search.componen
     SidebarBrandComponent,
     SidebarSearchComponent,
     SidebarMenuComponent,
-    SidebarFooterComponent,
   ],
   templateUrl: './sidebar.component.html',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

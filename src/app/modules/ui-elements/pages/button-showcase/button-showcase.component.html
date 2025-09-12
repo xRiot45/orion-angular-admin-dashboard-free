@@ -1,0 +1,68 @@
+<main>
+  <div class="mb-8">
+    <h1 class="text-xl font-bold mb-1 text-start">Button Showcase</h1>
+    <z-breadcrumb>
+      <z-breadcrumb-list zWrap="wrap" zAlign="start">
+        <z-breadcrumb-item>
+          <z-breadcrumb-link zLink="#">UI Elements</z-breadcrumb-link>
+        </z-breadcrumb-item>
+        <z-breadcrumb-separator class="flex items-center">
+          <iconify-icon icon="mdi:chevron-right" width="16"></iconify-icon>
+        </z-breadcrumb-separator>
+        <z-breadcrumb-item>
+          <z-breadcrumb-page>Button</z-breadcrumb-page>
+        </z-breadcrumb-item>
+      </z-breadcrumb-list>
+    </z-breadcrumb>
+  </div>
+
+  <!-- Grid Buttons -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 gap-4">
+    <div *ngFor="let btn of buttons" class="relative p-6 rounded-2xl border">
+      <!-- Header Card -->
+      <div class="flex items-center justify-between mb-4">
+        <div class="block">
+          <h2 class="text-xl font-bold">{{ btn.label }}</h2>
+          <span class="text-sm text-gray-500 mt-1">
+            {{ btn.description || 'Click the button to see code below.' }}
+          </span>
+        </div>
+
+        <!-- Tombol Show Code -->
+        <div class="flex justify-center mb-2">
+          <button
+            (click)="toggleCode(btn.name)"
+            class="flex items-center gap-2 text-xs font-semibold px-3 py-1 rounded-full cursor-pointer transition"
+          >
+            <iconify-icon icon="iconoir:code" width="16"></iconify-icon>
+            Show Code
+          </button>
+        </div>
+      </div>
+
+      <!-- Button Component -->
+      <div class="flex justify-center items-center h-28 mb-4">
+        <button z-button [class]="btn.classes">
+          {{ btn.label }}
+        </button>
+      </div>
+
+      <!-- Code -->
+      <div *ngIf="isCodeVisible(btn.name)" class="space-y-4 mt-4">
+        <!-- TypeScript Code -->
+        <div *ngIf="btn.tsCode" class="relative">
+          <pre class="p-4 bg-gray-900 text-sm rounded-lg overflow-auto shadow-inner">
+            <code class="typescript rounded-md">{{ btn.tsCode }}</code>
+          </pre>
+        </div>
+
+        <!-- HTML Code -->
+        <div class="relative">
+          <pre class="p-4 bg-gray-900 text-sm rounded-lg overflow-auto shadow-inner">
+            <code class="html rounded-md">{{ btn.htmlCode }}</code>
+          </pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
