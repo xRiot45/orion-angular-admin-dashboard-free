@@ -1,12 +1,13 @@
-<!-- Overlay (klik untuk menutup) -->
-<div
-  *ngIf="isMobileOrTablet && isMobileOpen"
-  class="fixed inset-0 bg-black/50 z-40 transition-opacity duration-300"
-  tabindex="0"
-  (click)="toggleSidebar(false)"
-  (keydown)="onOverlayKeydown($event)"
-  aria-label="Close sidebar overlay"
-></div>
+<!-- Overlay -->
+@if (isMobileOrTablet && isMobileOpen) {
+  <div
+    class="fixed inset-0 bg-black/50 z-40 transition-opacity duration-300"
+    tabindex="0"
+    (click)="toggleSidebar(false)"
+    (keydown)="onOverlayKeydown($event)"
+    aria-label="Close sidebar overlay"
+  ></div>
+}
 
 <!-- Sidebar -->
 <aside
@@ -19,17 +20,19 @@
   [class.-translate-x-full]="isMobileOrTablet && !isMobileOpen"
   [class.translate-x-0]="isMobileOrTablet && isMobileOpen"
 >
-  <!-- Header Sidebar -->
-  <app-sidebar-header [isCollapsed]="isCollapsed" (onLogout)="onLogout()"></app-sidebar-header>
-
   <!-- Brand -->
   <app-sidebar-brand
     [isCollapsed]="isCollapsed"
     (toggleSidebar)="toggleSidebar()"
   ></app-sidebar-brand>
 
+  <!-- Header Sidebar -->
+  <app-sidebar-header [isCollapsed]="isCollapsed" (onLogout)="onLogout()"></app-sidebar-header>
+
   <!-- Search -->
-  <app-sidebar-search *ngIf="!isCollapsed && !isMobileOrTablet"></app-sidebar-search>
+  @if (!isCollapsed && !isMobileOrTablet) {
+    <app-sidebar-search></app-sidebar-search>
+  }
 
   <!-- Menu -->
   <div class="flex-1 flex flex-col overflow-y-auto scrollbar-none">
