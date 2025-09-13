@@ -54,14 +54,18 @@
       <div *ngIf="isCodeVisible(btn.name)" class="space-y-4 mt-4">
         <!-- TypeScript Code -->
         <div *ngIf="btn.tsCode" class="relative">
-          <pre class="p-4 bg-gray-900 text-sm rounded-lg overflow-auto shadow-inner">
+          <pre
+            class="p-4 bg-[var(--color-foreground)] text-sm rounded-lg overflow-auto shadow-inner"
+          >
             <code class="typescript rounded-md">{{ btn.tsCode }}</code>
           </pre>
         </div>
 
         <!-- HTML Code -->
         <div class="relative">
-          <pre class="p-4 bg-gray-900 text-sm rounded-lg overflow-auto shadow-inner">
+          <pre
+            class="p-4 bg-[var(--color-foreground)] text-sm rounded-lg overflow-auto shadow-inner"
+          >
             <code class="html rounded-md">{{ btn.htmlCode }}</code>
           </pre>
         </div>

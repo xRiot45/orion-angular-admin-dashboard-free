@@ -29,11 +29,6 @@
   --color-accent-active: var(--color-accent-active);
   --color-accent-foreground: var(--color-accent-foreground);
 
-  /* Muted */
-  --color-muted: var(--color-muted);
-  --color-muted-hover: var(--color-muted-hover);
-  --color-muted-foreground: var(--color-muted-foreground);
-
   /* Background & Foreground */
   --color-background: var(--color-background);
   --color-foreground: var(--color-foreground);
@@ -104,9 +99,9 @@
   --color-accent-foreground: var(--color-accent-foreground);
 
   /* Muted */
-  --color-muted: var(--color-muted);
-  --color-muted-hover: var(--color-muted-hover);
-  --color-muted-foreground: var(--color-muted-foreground);
+  --color-muted: var(--color-gray-500);
+  --color-muted-hover: var(--color-gray-600);
+  --color-muted-foreground: var(--color-gray-700);
 
   /* Background & Foreground */
   --color-background: var(--color-background);
@@ -185,6 +180,11 @@
   --color-gray-700: #2b2b2b;
   --color-gray-800: #1b1b1b;
   --color-gray-900: #0a0a0a;
+
+  --color-muted: var(--color-gray-400);
+  --color-muted-hover: var(--color-gray-600);
+  --color-muted-active: var(--color-gray-700);
+  --color-muted-foreground: var(--color-gray-900);
 
   /* ---------------------- Background / Surface ---------------------- */
   --color-background: #ffffff;
