@@ -2,6 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   computed,
+  CUSTOM_ELEMENTS_SCHEMA,
   input,
   ViewEncapsulation,
 } from '@angular/core';
@@ -18,7 +19,7 @@ import { alertVariants, ZardAlertVariants } from './alert.variants';
   encapsulation: ViewEncapsulation.None,
   template: `
     @if (iconName()) {
-      <i [class]="iconName()"></i>
+      <iconify-icon [icon]="iconName()" width="24"></iconify-icon>
     }
 
     <div class="flex flex-col gap-1 w-full">
@@ -31,6 +32,7 @@ import { alertVariants, ZardAlertVariants } from './alert.variants';
     '[attr.data-type]': 'zType()',
     '[attr.data-appearance]': 'zAppearance()',
   },
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ZardAlertComponent {
   readonly class = input<ClassValue>('');
