@@ -159,14 +159,14 @@
   --color-primary-active: #99221a;
   --color-primary-foreground: #ffffff;
 
-  --color-secondary: #ff6b5f;
-  --color-secondary-hover: #ff4c4c;
-  --color-secondary-active: #e0433e;
+  --color-secondary: #f97316;
+  --color-secondary-hover: #ea580c;
+  --color-secondary-active: #c2410c;
   --color-secondary-foreground: #ffffff;
 
-  --color-accent: #f5a623;
-  --color-accent-hover: #d18e1f;
-  --color-accent-active: #b3701a;
+  --color-accent: #facc15;
+  --color-accent-hover: #eab308;
+  --color-accent-active: #ca8a04;
   --color-accent-foreground: #ffffff;
 
   /* ---------------------- Gray / Neutral ---------------------- */
@@ -184,7 +184,7 @@
   --color-muted: var(--color-gray-400);
   --color-muted-hover: var(--color-gray-600);
   --color-muted-active: var(--color-gray-700);
-  --color-muted-foreground: var(--color-gray-900);
+  --color-muted-foreground: var(--color-gray-100);
 
   /* ---------------------- Background / Surface ---------------------- */
   --color-background: #ffffff;
