@@ -32,10 +32,10 @@ export class ButtonShowcaseComponent implements AfterViewInit {
 
   buttons: ButtonItem[] = [
     {
-      name: 'Default',
-      label: 'Default Button',
+      name: 'Primary',
+      label: 'Primary Button',
       classes:
-        'bg-[var(--color-foreground)] text-[var(--color-primary-foreground)] hover:bg-[var(--color-primary)] hover:text-[var(--color-primary-foreground)] cursor-pointer',
+        'bg-[var(--color-primary)] text-[var(--color-primary-foreground)] hover:bg-[var(--color-primary-hover)] cursor-pointer',
       tsCode: `
 // TypeScript Code
 import { ZardButtonComponent } from 'your-path-to-button-component';
@@ -49,13 +49,13 @@ export class YourComponent {}
       `,
       htmlCode: `
 // HTML Code
-<button z-button class="bg-[var(--color-foreground)] 
-text-[var(--color-primary-foreground)] hover:bg-[var(--color-primary)] 
-hover:text-[var(--color-primary-foreground)] cursor-pointer">
-Default Button
+<button z-button class="bg-[var(--color-primary)] 
+text-[var(--color-primary-foreground)] 
+hover:bg-[var(--color-primary-hover)] cursor-pointer">
+Primary Button
 </button>
 `,
-      description: 'This is the default button style',
+      description: 'This is the primary button style',
     },
   ];
 
