@@ -13,40 +13,38 @@
       @for (item of group.items; track $index) {
         <div>
           <!-- Main Menu Button -->
-          <a routerLink="{{ item.route }}">
-            <button
-              class="w-full flex items-center justify-between gap-2 py-3 px-5 rounded-md text-white font-medium tracking-wide text-md hover:bg-zinc-800 transition cursor-pointer"
-              (click)="item.children ? toggle(item.title) : null"
-              [class.justify-center]="isCollapsed"
-            >
-              <!-- Icon + Title -->
-              <div class="flex items-center gap-2">
-                @if (item.icon) {
-                  <!-- Menu Icon -->
-                  <iconify-icon
-                    [icon]="item.icon"
-                    width="20"
-                    height="20"
-                    class="text-zinc-300"
-                  ></iconify-icon>
-                }
-
-                @if (!isCollapsed) {
-                  <!-- Menu Title -->
-                  <span class="text-zinc-300 text-xs">{{ item.title }}</span>
-                }
-              </div>
-
-              <!-- Dropdown Arrow (visible only when item has children & sidebar expanded) -->
-              @if (item.children && !isCollapsed) {
+          <button
+            class="w-full flex items-center justify-between gap-2 py-3 px-5 rounded-md text-white font-medium tracking-wide text-md hover:bg-zinc-800 transition cursor-pointer"
+            (click)="item.children ? toggle(item.title) : null"
+            [class.justify-center]="isCollapsed"
+          >
+            <!-- Icon + Title -->
+            <div class="flex items-center gap-2">
+              @if (item.icon) {
+                <!-- Menu Icon -->
                 <iconify-icon
-                  icon="mingcute:down-line"
-                  class="text-white transform transition-transform duration-300 ease-in-out"
-                  [class.rotate-180]="openMenu === item.title"
+                  [icon]="item.icon"
+                  width="20"
+                  height="20"
+                  class="text-zinc-300"
                 ></iconify-icon>
               }
-            </button>
-          </a>
+
+              @if (!isCollapsed) {
+                <!-- Menu Title -->
+                <span class="text-zinc-300 text-xs">{{ item.title }}</span>
+              }
+            </div>
+
+            <!-- Dropdown Arrow (visible only when item has children & sidebar expanded) -->
+            @if (item.children && !isCollapsed) {
+              <iconify-icon
+                icon="mingcute:down-line"
+                class="text-white transform transition-transform duration-300 ease-in-out"
+                [class.rotate-180]="openMenu === item.title"
+              ></iconify-icon>
+            }
+          </button>
 
           <!-- Children (collapsible) -->
           @if (item.children) {
