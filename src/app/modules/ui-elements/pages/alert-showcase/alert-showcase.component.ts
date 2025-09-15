@@ -14,6 +14,8 @@ interface AlertItem {
   name: string;
   title: string;
   classes: string;
+  appearance: 'fill' | 'outline' | 'soft' | null | undefined;
+  type: 'error' | 'default' | 'info' | 'success' | 'warning' | null | undefined;
   tsCode?: string;
   htmlCode: string;
   description: string;
@@ -34,6 +36,8 @@ export class AlertShowcaseComponent implements AfterViewInit {
       name: 'Basic',
       title: 'Basic Alert',
       classes: '',
+      appearance: 'fill',
+      type: 'default',
       tsCode: `
 // TypeScript Code
 import { Component } from '@angular/core';
@@ -55,6 +59,34 @@ export class YourComponent {
 <z-alert [zIcon]="icon" [zTitle]="title" [zDescription]="description" />
   `,
       description: 'This is the basic alert style',
+    },
+    {
+      icon: 'iconoir:code',
+      name: 'Info',
+      title: 'Info Alert',
+      classes: '',
+      appearance: 'fill',
+      type: 'info',
+      tsCode: `
+// TypeScript Code
+import { Component } from '@angular/core';
+import { ZardAlertComponent } from '@shared/components/ui/alert/alert.component';
+
+@Component({
+  standalone: true,
+  imports: [ZardAlertComponent],
+  templateUrl: 'your-template.html',,
+})
+export class ZardDemoAlertInfoComponent {
+  title = 'Info alert!';
+  description = 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda, sint.';
+}
+      `,
+      htmlCode: `
+<!-- HTML Code -->
+ <z-alert [zTitle]="title" [zDescription]="description" zType="info" zAppearance="fill" />
+      `,
+      description: 'This is the info alert style',
     },
   ];
 

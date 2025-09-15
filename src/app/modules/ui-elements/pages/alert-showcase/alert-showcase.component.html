@@ -50,7 +50,14 @@
 
       <!-- Alert Component -->
       <div class="flex justify-center items-center h-28 mb-4">
-        <z-alert [zIcon]="alert.icon" [zTitle]="alert.title" [zDescription]="alert.description" />
+        <z-alert
+          [zIcon]="alert.icon"
+          [zTitle]="alert.title"
+          [zDescription]="alert.description"
+          [zAppearance]="alert.appearance"
+          [zType]="alert.type"
+          [class]="alert.classes"
+        />
       </div>
 
       <!-- Code -->
