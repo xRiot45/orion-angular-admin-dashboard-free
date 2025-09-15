@@ -61,7 +61,7 @@ export class YourComponent {
       description: 'This is the basic alert style',
     },
     {
-      icon: 'material-symbols:info',
+      icon: 'material-symbols:info-outline',
       name: 'Info',
       title: 'Info Alert',
       classes: '',
@@ -77,7 +77,7 @@ import { ZardAlertComponent } from '@shared/components/ui/alert/alert.component'
   imports: [ZardAlertComponent],
   templateUrl: 'your-template.html',,
 })
-export class ZardDemoAlertInfoComponent {
+export class YourComponent {
   title = 'Info alert!';
   description = 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda, sint.';
 }
@@ -105,7 +105,7 @@ import { ZardAlertComponent } from '@shared/components/ui/alert/alert.component'
   imports: [ZardAlertComponent],
   templateUrl: 'your-template.html',,
 })
-export class ZardDemoAlertInfoComponent {
+export class YourComponent {
   title = 'Error alert!';
   description = 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda, sint.';
 }
@@ -115,6 +115,34 @@ export class ZardDemoAlertInfoComponent {
  <z-alert [zTitle]="title" [zDescription]="description" zType="error" zAppearance="fill" />
       `,
       description: 'This is the error alert style',
+    },
+    {
+      icon: 'ix:success',
+      name: 'Success',
+      title: 'Success Alert',
+      classes: '',
+      appearance: 'fill',
+      type: 'success',
+      tsCode: `
+// TypeScript Code
+import { Component } from '@angular/core';
+import { ZardAlertComponent } from '@shared/components/ui/alert/alert.component';
+
+@Component({
+  standalone: true,
+  imports: [ZardAlertComponent],
+  templateUrl: 'your-template.html',,
+})
+export class YourComponent {
+  title = 'Error alert!';
+  description = 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda, sint.';
+}
+      `,
+      htmlCode: `
+<!-- HTML Code -->
+ <z-alert [zTitle]="title" [zDescription]="description" zType="success" zAppearance="fill" />
+      `,
+      description: 'This is the succcess alert style',
     },
   ];
 
