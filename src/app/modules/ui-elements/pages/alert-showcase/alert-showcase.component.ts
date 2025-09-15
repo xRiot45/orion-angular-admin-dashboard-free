@@ -33,8 +33,8 @@ export class AlertShowcaseComponent implements AfterViewInit {
   alerts: AlertItem[] = [
     {
       icon: 'iconoir:code',
-      name: 'Basic',
-      title: 'Basic Alert',
+      name: 'Default',
+      title: 'Default Alert',
       classes: '',
       appearance: 'fill',
       type: 'default',
@@ -134,7 +134,7 @@ import { ZardAlertComponent } from '@shared/components/ui/alert/alert.component'
   templateUrl: 'your-template.html',,
 })
 export class YourComponent {
-  title = 'Error alert!';
+  title = 'Success alert!';
   description = 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda, sint.';
 }
       `,
@@ -143,6 +143,34 @@ export class YourComponent {
  <z-alert [zTitle]="title" [zDescription]="description" zType="success" zAppearance="fill" />
       `,
       description: 'This is the succcess alert style',
+    },
+    {
+      icon: 'material-symbols:warning-outline',
+      name: 'Warning',
+      title: 'Warning Alert',
+      classes: '',
+      appearance: 'fill',
+      type: 'warning',
+      tsCode: `
+// TypeScript Code
+import { Component } from '@angular/core';
+import { ZardAlertComponent } from '@shared/components/ui/alert/alert.component';
+
+@Component({
+  standalone: true,
+  imports: [ZardAlertComponent],
+  templateUrl: 'your-template.html',,
+})
+export class YourComponent {
+  title = 'Warning alert!';
+  description = 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda, sint.';
+}
+      `,
+      htmlCode: `
+<!-- HTML Code -->
+ <z-alert [zTitle]="title" [zDescription]="description" zType="warning" zAppearance="fill" />
+      `,
+      description: 'This is the warning alert style',
     },
   ];
 
