@@ -1,0 +1,78 @@
+<main>
+  <div class="mb-8">
+    <h1 class="text-xl font-bold mb-1 text-start">Avatar Showcase</h1>
+    <z-breadcrumb>
+      <z-breadcrumb-list zWrap="wrap" zAlign="start">
+        <z-breadcrumb-item>
+          <z-breadcrumb-link zLink="#" class="text-[var(--color-text-tertiary)]"
+            >UI Elements</z-breadcrumb-link
+          >
+        </z-breadcrumb-item>
+        <z-breadcrumb-separator class="flex items-center">
+          <iconify-icon
+            icon="mdi:chevron-right"
+            width="16"
+            class="text-[var(--color-text-primary)]"
+          ></iconify-icon>
+        </z-breadcrumb-separator>
+        <z-breadcrumb-item>
+          <z-breadcrumb-page>Avatar</z-breadcrumb-page>
+        </z-breadcrumb-item>
+      </z-breadcrumb-list>
+    </z-breadcrumb>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 gap-4">
+    <div
+      *ngFor="let avatar of avatars"
+      class="relative p-6 rounded-2xl border border-[var(--color-border)]"
+    >
+      <!-- Header Card -->
+      <div class="flex items-center justify-between mb-4">
+        <div class="block">
+          <h2 class="text-xl font-bold">{{ avatar.title }}</h2>
+          <span class="text-sm text-gray-500 mt-1">
+            {{ avatar.description || 'Click the button to see code below.' }}
+          </span>
+        </div>
+
+        <!-- Tombol Show Code -->
+        <div class="flex justify-center mb-2">
+          <button
+            (click)="toggleCode(avatar.name)"
+            class="flex items-center gap-2 text-xs font-semibold px-3 py-1 rounded-full cursor-pointer transition"
+          >
+            <iconify-icon icon="iconoir:code" width="16"></iconify-icon>
+            Show Code
+          </button>
+        </div>
+      </div>
+
+      <!-- Avatar Component -->
+      <div class="flex justify-center items-center h-28 mb-4">
+        <z-avatar [zType]="avatar.type" [zImage]="avatar.zImage" />
+      </div>
+
+      <!-- Code -->
+      <div *ngIf="isCodeVisible(avatar.name)" class="space-y-4 mt-4">
+        <!-- TypeScript Code -->
+        <div *ngIf="avatar.tsCode" class="relative">
+          <pre
+            class="p-4 bg-[var(--color-foreground)] text-sm rounded-lg overflow-auto shadow-inner"
+          >
+            <code class="typescript rounded-md">{{ avatar.tsCode }}</code>
+          </pre>
+        </div>
+
+        <!-- HTML Code -->
+        <div class="relative">
+          <pre
+            class="p-4 bg-[var(--color-foreground)] text-sm rounded-lg overflow-auto shadow-inner"
+          >
+            <code class="html rounded-md">{{ avatar.htmlCode }}</code>
+          </pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
