@@ -15,7 +15,7 @@ interface AlertItem {
   title: string;
   classes: string;
   appearance: 'fill' | 'outline' | 'soft' | null | undefined;
-  type: 'error' | 'default' | 'info' | 'success' | 'warning' | null | undefined;
+  type: 'default' | 'error' | 'info' | 'success' | 'warning' | null | undefined;
   tsCode?: string;
   htmlCode: string;
   description: string;
@@ -61,7 +61,7 @@ export class YourComponent {
       description: 'This is the basic alert style',
     },
     {
-      icon: 'iconoir:code',
+      icon: 'material-symbols:info',
       name: 'Info',
       title: 'Info Alert',
       classes: '',
@@ -87,6 +87,34 @@ export class ZardDemoAlertInfoComponent {
  <z-alert [zTitle]="title" [zDescription]="description" zType="info" zAppearance="fill" />
       `,
       description: 'This is the info alert style',
+    },
+    {
+      icon: 'codicon:error',
+      name: 'Error',
+      title: 'Error Alert',
+      classes: '',
+      appearance: 'fill',
+      type: 'error',
+      tsCode: `
+// TypeScript Code
+import { Component } from '@angular/core';
+import { ZardAlertComponent } from '@shared/components/ui/alert/alert.component';
+
+@Component({
+  standalone: true,
+  imports: [ZardAlertComponent],
+  templateUrl: 'your-template.html',,
+})
+export class ZardDemoAlertInfoComponent {
+  title = 'Error alert!';
+  description = 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda, sint.';
+}
+      `,
+      htmlCode: `
+<!-- HTML Code -->
+ <z-alert [zTitle]="title" [zDescription]="description" zType="error" zAppearance="fill" />
+      `,
+      description: 'This is the error alert style',
     },
   ];
 
