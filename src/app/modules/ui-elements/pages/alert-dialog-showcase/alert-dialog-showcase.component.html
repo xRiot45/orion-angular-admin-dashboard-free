@@ -1,3 +1,80 @@
 <main>
-  <h1>test</h1>
+  <!-- Breadcrumbs -->
+  <div class="mb-8">
+    <h1 class="text-xl font-bold mb-1 text-start">Alert Dialog Showcase</h1>
+    <z-breadcrumb>
+      <z-breadcrumb-list zWrap="wrap" zAlign="start">
+        <z-breadcrumb-item>
+          <z-breadcrumb-link zLink="#" class="text-[var(--color-text-tertiary)]"
+            >UI Elements</z-breadcrumb-link
+          >
+        </z-breadcrumb-item>
+        <z-breadcrumb-separator class="flex items-center">
+          <iconify-icon
+            icon="mdi:chevron-right"
+            width="16"
+            class="text-[var(--color-text-primary)]"
+          ></iconify-icon>
+        </z-breadcrumb-separator>
+        <z-breadcrumb-item>
+          <z-breadcrumb-page>Alert Dialog</z-breadcrumb-page>
+        </z-breadcrumb-item>
+      </z-breadcrumb-list>
+    </z-breadcrumb>
+  </div>
+
+  <!-- Grid -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 gap-4">
+    <div
+      *ngFor="let alertDialog of alertDialogs"
+      class="relative p-6 rounded-2xl border border-[var(--color-border)]"
+    >
+      <!-- Header Card -->
+      <div class="flex items-center justify-between mb-4">
+        <div class="block">
+          <h2 class="text-xl font-bold">{{ alertDialog.label }}</h2>
+          <span class="text-sm text-gray-500 mt-1">
+            {{ alertDialog.description || 'Click the button to see code below.' }}
+          </span>
+        </div>
+
+        <!-- Tombol Show Code -->
+        <div class="flex justify-center mb-2">
+          <button
+            (click)="toggleCode(alertDialog.name)"
+            class="flex items-center gap-2 text-xs font-semibold px-3 py-1 rounded-full cursor-pointer transition"
+          >
+            <iconify-icon icon="iconoir:code" width="16"></iconify-icon>
+            Show Code
+          </button>
+        </div>
+      </div>
+
+      <!-- Alert Dialog Component -->
+      <div class="flex justify-center items-center mb-4">
+        <button z-button zType="outline" (click)="showDialog()">Show Dialog</button>
+      </div>
+
+      <!-- Code -->
+      <div *ngIf="isCodeVisible(alertDialog.name)" class="space-y-4 mt-4">
+        <!-- TypeScript Code -->
+        <div *ngIf="alertDialog.tsCode" class="relative">
+          <pre
+            class="p-4 bg-[var(--color-foreground)] text-sm rounded-lg overflow-auto shadow-inner"
+          >
+            <code class="typescript rounded-md">{{ alertDialog.tsCode }}</code>
+          </pre>
+        </div>
+
+        <!-- HTML Code -->
+        <div class="relative">
+          <pre
+            class="p-4 bg-[var(--color-foreground)] text-sm rounded-lg overflow-auto shadow-inner"
+          >
+            <code class="html rounded-md">{{ alertDialog.htmlCode }}</code>
+          </pre>
+        </div>
+      </div>
+    </div>
+  </div>
 </main>
