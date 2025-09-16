@@ -61,4 +61,16 @@ export const UI_ELEMENTS_ROUTE: Routes = [
       },
     ],
   },
+  {
+    path: 'ui-elements',
+    children: [
+      {
+        path: 'badge',
+        loadComponent: () =>
+          import('./pages/badge-showcase/badge-showcase.component').then(
+            (m) => m.BadgeShowcaseComponent,
+          ),
+      },
+    ],
+  },
 ];
