@@ -6,6 +6,7 @@ interface AvatarItem {
   tsCode?: string;
   htmlCode: string;
   description?: string;
+  size: 'sm' | 'md' | 'lg' | null | undefined;
   zImage: { fallback: string; url?: string; alt?: string };
 }
 
@@ -36,6 +37,7 @@ export class YourComponent {
 <z-avatar zType="default" [zImage]="zImageDefault" />
     `,
     description: 'This is the default avatar style',
+    size: 'sm',
     zImage: { fallback: 'ZA' },
   },
   {
@@ -66,6 +68,7 @@ export class YourComponent {
 <z-avatar zType="default" [zImage]="zImageDefault" />
     `,
     description: 'This is the with image avatar style',
+    size: 'sm',
     zImage: {
       fallback: 'ZA',
       url: 'https://gasevents.com/wp-content/uploads/2021/02/team-1.jpg',
