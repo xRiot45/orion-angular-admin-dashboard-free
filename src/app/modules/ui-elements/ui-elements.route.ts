@@ -5,6 +5,18 @@ export const UI_ELEMENTS_ROUTE: Routes = [
     path: 'ui-elements',
     children: [
       {
+        path: 'accordion',
+        loadComponent: () =>
+          import('./pages/accordion-showcase/accordion-showcase.component').then(
+            (m) => m.AccordionShowcaseComponent,
+          ),
+      },
+    ],
+  },
+  {
+    path: 'ui-elements',
+    children: [
+      {
         path: 'alert',
         loadComponent: () =>
           import('./pages/alert-showcase/alert-showcase.component').then(
