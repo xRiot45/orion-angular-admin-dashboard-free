@@ -3,6 +3,7 @@ import {
   ChangeDetectorRef,
   Component,
   computed,
+  CUSTOM_ELEMENTS_SCHEMA,
   inject,
   input,
   signal,
@@ -18,6 +19,7 @@ import { ZardAccordionComponent } from './accordion.component';
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   template: `
     <div
       class="border-b border-border flex flex-1 flex-col cursor-pointer"
@@ -39,10 +41,11 @@ import { ZardAccordionComponent } from './accordion.component';
         <span class="group-hover:underline">
           {{ zTitle() }}
         </span>
-        <div
-          class="transition-transform duration-200 icon-chevron-down text-lg"
+        <iconify-icon
+          icon="mingcute:down-line"
+          class="transition-transform duration-200 text-lg"
           [class]="isOpen() ? 'rotate-180' : ''"
-        ></div>
+        />
       </button>
 
       <div

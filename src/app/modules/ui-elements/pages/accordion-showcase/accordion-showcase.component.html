@@ -1,4 +1,5 @@
 <main>
+  <!-- Breadcrumbs -->
   <div class="mb-8">
     <h1 class="text-xl font-bold mb-1 text-start">Accordion Showcase</h1>
     <z-breadcrumb>
@@ -20,5 +21,81 @@
         </z-breadcrumb-item>
       </z-breadcrumb-list>
     </z-breadcrumb>
+  </div>
+
+  <!-- Grid -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 gap-4">
+    <div
+      *ngFor="let accordion of accordions"
+      class="relative p-6 rounded-2xl border border-[var(--color-border)]"
+    >
+      <!-- Header Card -->
+      <div class="flex items-center justify-between mb-4">
+        <div class="block">
+          <h2 class="text-xl font-bold">{{ accordion.label }}</h2>
+          <span class="text-sm text-gray-500 mt-1">
+            {{ accordion.description || 'Click the button to see code below.' }}
+          </span>
+        </div>
+
+        <!-- Tombol Show Code -->
+        <div class="flex justify-center mb-2">
+          <button
+            (click)="toggleCode(accordion.name)"
+            class="flex items-center gap-2 text-xs font-semibold px-3 py-1 rounded-full cursor-pointer transition"
+          >
+            <iconify-icon icon="iconoir:code" width="16"></iconify-icon>
+            Show Code
+          </button>
+        </div>
+      </div>
+
+      <!-- Accordion Component -->
+      <div class="flex justify-center items-center mb-4">
+        <z-accordion zDefaultValue="item-2">
+          <z-accordion-item zValue="item-1" zTitle="A Study in Scarlet">
+            The first case of Sherlock Holmes and Dr. Watson. They investigate a murder in London,
+            which leads to a backstory involving Mormons in the U.S. Introduces Holmes’s deductive
+            method.
+          </z-accordion-item>
+
+          <z-accordion-item
+            zValue="item-2"
+            zTitle="The Sign of Four"
+            zDescription="Sir Arthur Conan Doyle"
+          >
+            The first case of Sherlock Holmes and Dr. Watson. They investigate a murder in London,
+            which leads to a backstory involving Mormons in the U.S. Introduces Holmes’s deductive
+            method.</z-accordion-item
+          >
+
+          <z-accordion-item zValue="item-3" zTitle="The Hound of the Baskervilles">
+            Holmes and Watson investigate the legend of a demonic hound haunting the Baskerville
+            family. Set in the eerie Dartmoor moorlands, the story involves betrayal and greed.
+          </z-accordion-item>
+        </z-accordion>
+      </div>
+
+      <!-- Code -->
+      <div *ngIf="isCodeVisible(accordion.name)" class="space-y-4 mt-4">
+        <!-- TypeScript Code -->
+        <div *ngIf="accordion.tsCode" class="relative">
+          <pre
+            class="p-4 bg-[var(--color-foreground)] text-sm rounded-lg overflow-auto shadow-inner"
+          >
+            <code class="typescript rounded-md">{{ accordion.tsCode }}</code>
+          </pre>
+        </div>
+
+        <!-- HTML Code -->
+        <div class="relative">
+          <pre
+            class="p-4 bg-[var(--color-foreground)] text-sm rounded-lg overflow-auto shadow-inner"
+          >
+            <code class="html rounded-md">{{ accordion.htmlCode }}</code>
+          </pre>
+        </div>
+      </div>
+    </div>
   </div>
 </main>

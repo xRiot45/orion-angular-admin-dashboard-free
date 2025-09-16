@@ -6,18 +6,21 @@ import { ZardBreadcrumbModule } from '@shared/components/ui/breadcrumb/breadcrum
 import hljs from 'highlight.js/lib/core';
 import ts from 'highlight.js/lib/languages/typescript';
 import html from 'highlight.js/lib/languages/xml';
+import { ACCORDION_CODE } from './accordion-showcase.constants';
 
 hljs.registerLanguage('html', html);
 hljs.registerLanguage('typescript', ts);
 
 @Component({
-  selector: 'app-accordion-showcase',
+  selector: 'ui-elements-accordion-showcase',
   imports: [CommonModule, ZardAccordionComponent, ZardAccordionItemComponent, ZardBreadcrumbModule],
   templateUrl: './accordion-showcase.component.html',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AccordionShowcaseComponent implements AfterViewInit {
   showCode: Record<string, boolean> = {};
+
+  accordions = ACCORDION_CODE;
 
   ngAfterViewInit(): void {
     this.highlightCode();
