@@ -29,6 +29,18 @@ export const UI_ELEMENTS_ROUTE: Routes = [
     path: 'ui-elements',
     children: [
       {
+        path: 'alert-dialog',
+        loadComponent: () =>
+          import('./pages/alert-dialog-showcase/alert-dialog-showcase.component').then(
+            (m) => m.AlertDialogShowcaseComponent,
+          ),
+      },
+    ],
+  },
+  {
+    path: 'ui-elements',
+    children: [
+      {
         path: 'avatar',
         loadComponent: () =>
           import('./pages/avatar-showcase/avatar-showcase.component').then(
