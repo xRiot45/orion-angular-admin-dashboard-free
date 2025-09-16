@@ -60,19 +60,21 @@
         <!-- TypeScript Code -->
         <div *ngIf="alertDialog.tsCode" class="relative">
           <pre
+            highlightCode
             class="p-4 bg-[var(--color-foreground)] text-sm rounded-lg overflow-auto shadow-inner"
           >
-            <code class="typescript rounded-md">{{ alertDialog.tsCode }}</code>
-          </pre>
+      <code class="typescript rounded-md">{{ alertDialog.tsCode }}</code>
+    </pre>
         </div>
 
         <!-- HTML Code -->
         <div class="relative">
           <pre
+            highlightCode
             class="p-4 bg-[var(--color-foreground)] text-sm rounded-lg overflow-auto shadow-inner"
           >
-            <code class="html rounded-md">{{ alertDialog.htmlCode }}</code>
-          </pre>
+      <code class="html rounded-md">{{ alertDialog.htmlCode }}</code>
+    </pre>
         </div>
       </div>
     </div>
