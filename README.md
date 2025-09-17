@@ -1,59 +1,141 @@
-# OrionAngularDashboardFree
+# Orion - Modern Angular Admin Dashboard Template
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.2.1.
+**Technology Stack:**
 
-## Development server
+- **Frontend:** Angular v20
+- **CSS Framework:** Tailwind CSS
+- **UI Components:** Zard UI
 
-To start a local development server, run:
+**Dashboard Name:** Orion - Modern Angular Admin Dashboard Template
+
+---
+
+## Table of Contents
+
+1. [Overview](#overview)
+2. [Installation](#installation)
+3. [Navigation Menu](#navigation-menu)
+4. [Features](#features)
+5. [Usage](#usage)
+6. [Contributing](#contributing)
+7. [License](#license)
+
+---
+
+## Overview
+
+Orion is a modern, responsive, and customizable admin dashboard template built with **Angular v20**, **Tailwind CSS**, and **Zard UI**. It includes a structured navigation system, pre-built pages, UI components, and data tables to accelerate dashboard development.
+
+The dashboard is designed for scalability and modularity, making it suitable for projects ranging from small web apps to enterprise-level applications.
+
+---
+
+## Installation
+
+1. **Clone the repository**
+
+```bash
+git clone https://github.com/Rumahkodingku/orion-angular-admin-dashboard-free.git
+cd orion-angular-admin-dashboard-free
+```
+
+2. **Install dependencies**
+
+```bash
+npm install
+```
+
+3. **Run the development server**
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+4. Open the dashboard in your browser: `http://localhost:4200`
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Navigation Menu
 
-```bash
-ng generate component component-name
+The dashboard uses a structured navigation menu defined in `NAV_ITEMS`. Below is the menu hierarchy:
+
+### MENU
+
+- **Dashboard**
+  - Route: `/`
+  - Icon: `material-symbols:dashboard-outline-rounded`
+
+- **Authentication**
+  - Icon: `material-symbols:security`
+  - Sub-pages:
+    - **Login** → `/auth/login`
+    - **Register** → `/auth/register`
+
+- **Pages**
+  - Icon: `material-symbols:description`
+  - Sub-pages:
+    - **Error 401** → `/error/401`
+    - **Error 404** → `/error/404`
+    - **Error 500** → `/error/500`
+
+- **Tables**
+  - Icon: `mdi:table-large`
+  - Sub-pages:
+    - **Basic Table** → `/tables/basic`
+    - **Data Table** → `/tables/data`
+
+### OTHERS
+
+- **UI Elements**
+  - Icon: `mdi:palette`
+  - Sub-pages:
+    - **Accordion** → `/ui-elements/accordion`
+    - **Alert** → `/ui-elements/alert`
+    - **Alert Dialog** → `/ui-elements/alert-dialog`
+    - **Avatar** → `/ui-elements/avatar`
+    - **Badge** → `/ui-elements/badge`
+    - **Breadcrumb** → `/ui-elements/breadcrumb`
+    - **Button** → `/ui-elements/button`
+
+---
+
+## Features
+
+- Fully responsive design optimized for desktop, tablet, and mobile.
+- Modular Angular architecture for scalability.
+- Integrated Tailwind CSS for utility-first styling.
+- Pre-built UI components via Zard UI.
+- Data tables with sorting, pagination, and search.
+- Authentication pages (Login/Register) included.
+- Standard error pages (401, 404, 500).
+
+---
+
+## Usage
+
+- Use `routerLink` for navigation between pages.
+- UI components can be imported individually from the `ui-elements` module.
+- Tables support both static and dynamic data.
+
+Example:
+
+```html
+<z-button color="primary" (click)="handleClick()">Click Me</z-button>
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## Contributing
 
-## Building
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-name`).
+3. Make your changes.
+4. Commit changes (`git commit -m 'Add new feature'`).
+5. Push to the branch (`git push origin feature-name`).
+6. Create a pull request.
 
-To build the project run:
+---
 
-```bash
-ng build
-```
+## License
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+This project is free to use and distributed without any license restrictions.
