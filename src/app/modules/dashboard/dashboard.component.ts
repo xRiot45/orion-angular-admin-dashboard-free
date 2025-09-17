@@ -1,9 +1,10 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { ZardBreadcrumbModule } from '@shared/components/ui/breadcrumb/breadcrumb.module';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [],
-  template: `<p>dashboard works!</p>`,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [ZardBreadcrumbModule],
+  templateUrl: './dashboard.component.html',
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DashboardComponent {}
