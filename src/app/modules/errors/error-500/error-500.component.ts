@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-error-500',
+  selector: 'pages-error-500',
   imports: [],
   templateUrl: './error-500.component.html',
 })
