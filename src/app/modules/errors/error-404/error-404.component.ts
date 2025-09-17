@@ -1,10 +1,15 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-error-404',
   imports: [],
-  template: `<p>error-404 works!</p>`,
-  styleUrl: './error-404.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  templateUrl: './error-404.component.html',
 })
-export class Error404Component {}
+export class Error404Component {
+  private router = inject(Router);
+
+  goHome() {
+    this.router.navigate(['/']);
+  }
+}
