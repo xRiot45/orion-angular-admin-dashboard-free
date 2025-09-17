@@ -1,10 +1,9 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 @Component({
   selector: 'app-register',
   imports: [],
-  template: `<p>register works!</p>`,
-  styleUrl: './register.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  templateUrl: './register.component.html',
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class RegisterComponent {}

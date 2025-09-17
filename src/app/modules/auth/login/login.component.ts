@@ -1,10 +1,9 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 @Component({
   selector: 'app-login',
   imports: [],
-  template: `<p>login works!</p>`,
-  styleUrl: './login.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  templateUrl: './login.component.html',
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class LoginComponent {}

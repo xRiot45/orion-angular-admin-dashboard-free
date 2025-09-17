@@ -18,6 +18,6 @@ export const MODULE_ROUTE: Routes = [
     ],
   },
 
-  ...ERROR_ROUTE,
   ...AUTH_ROUTE,
+  ...ERROR_ROUTE,
 ];
