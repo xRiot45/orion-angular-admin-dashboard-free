@@ -1,10 +1,15 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-error-500',
   imports: [],
-  template: `<p>error-500 works!</p>`,
-  styleUrl: './error-500.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  templateUrl: './error-500.component.html',
 })
-export class Error500Component {}
+export class Error500Component {
+  private router = inject(Router);
+
+  goHome() {
+    this.router.navigate(['/']);
+  }
+}
